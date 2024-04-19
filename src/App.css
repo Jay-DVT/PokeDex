@@ -1,0 +1,315 @@
+.main-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.layout {
+	display: flex;
+	align-items: end;
+}
+
+.layout-left {
+	width: 400px;
+	height: 600px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	background-color: #dc0a2f;
+}
+
+.screen {
+	width: 350px;
+	height: 270px;
+	border: 1px solid #000;
+	border-radius: 0 0 0 35px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #dedddd;
+}
+
+.inner-screen {
+	width: 290px;
+	height: 230px;
+	border: 1px solid #000;
+	background-color: #fff;
+}
+
+.layout-right {
+	width: 400px;
+	height: 550px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background-color: #dc0a2f;
+}
+
+.button-container {
+	margin-top: 20px;
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+}
+
+.interaction-container > .pad-container {
+	margin: 10px 20px;
+}
+
+.button {
+	height: 50px;
+	width: 50px;
+	border: 1px solid #000;
+	border-radius: 100%;
+	margin-right: 10px;
+}
+
+.interaction-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.green-screen {
+	margin: 10px;
+	width: 125px;
+	height: 75px;
+	border: 1px solid #000;
+	border-radius: 5px;
+	background-color: #4eaf5e;
+}
+
+.flat-button {
+	height: 5px;
+	width: 50px;
+	border: 1px solid #000;
+	border-radius: 5px;
+}
+
+.right-flat-buttons {
+	width: 130px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.flat-buttons-container {
+	display: flex;
+	justify-content: space-between;
+}
+
+.bg-green {
+	background-color: #4eaf5e;
+}
+
+.bg-red {
+	background-color: #f44336;
+}
+
+.bg-blue {
+	background-color: #2196f3;
+}
+
+.bg-black {
+	background-color: #000;
+}
+
+.bg-yellow {
+	background-color: #ffeb3b;
+}
+
+.pad-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-left: 10px;
+}
+
+.pad {
+	width: 30px;
+	height: 30px;
+	background-color: #000;
+}
+
+.middle-pads {
+	display: flex;
+}
+
+.panel-container {
+	width: 100%;
+	height: 100px;
+	display: flex;
+	border: 1px solid #000;
+}
+
+.left-camera-panel {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+
+.components-panel {
+	height: min-content;
+	display: flex;
+	align-items: start;
+}
+
+.camera-rim {
+	width: 70px;
+	height: 70px;
+	border: 1px solid #000;
+	border-radius: 100%;
+	background-color: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.camera {
+	width: 80%;
+	height: 80%;
+	border: 1px solid #000;
+	border-radius: 100%;
+	background-color: #02a2f7;
+}
+
+.led-container {
+	display: flex;
+	justify-content: space-around;
+	align-items: start;
+	width: 80px;
+	padding-left: 10px;
+}
+
+.led {
+	width: 15px;
+	height: 15px;
+	border: 1px solid #000;
+	border-radius: 100%;
+}
+
+.right-cutout {
+	height: 50px;
+	width: 100%;
+	border: 1px solid #000;
+}
+
+.lower-panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.right-screen-container {
+	display: flex;
+	justify-content: center;
+}
+
+.right-screen {
+	width: 300px;
+	height: 90px;
+	border: 1px solid #000;
+	background-color: #000;
+}
+
+.right-panel-container {
+	display: flex;
+	height: calc(100% - 50px);
+	justify-content: center;
+	align-items: center;
+}
+
+.right-panel {
+	width: min-content;
+	display: flex;
+	flex-direction: column;
+	align-items: space-between;
+	justify-content: space-between;
+	height: 400px;
+}
+
+.blue-button {
+	width: 60px;
+	height: 50px;
+	border: 1px solid #000;
+	background-color: #2196f3;
+}
+
+.blue-buttons-container {
+	display: flex;
+	justify-content: center;
+}
+
+.blue-line {
+	display: flex;
+}
+
+.white-line {
+	display: flex;
+}
+
+.white-button {
+	width: 60px;
+	height: 50px;
+	border: 1px solid #000;
+	background-color: #fff;
+}
+
+.right-led {
+	width: 40px;
+	height: 40px;
+	margin: 10px;
+	background: #fcde1e;
+	border-radius: 100%;
+	border: 1px solid #000;
+}
+
+.lower-screen {
+	height: 50px;
+	width: 125px;
+	border: 1px solid #000;
+	background-color: #000;
+}
+
+.right-lower-buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+.led-buttons {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	justify-content: space-between;
+}
+
+/* Pokemon Display */
+
+.left-screen-pokemon {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	overflow-y: auto;
+}
+
+.left-screen-pokemon::-webkit-scrollbar {
+	display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.left-screen-pokemon {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+
+.pokemon-card {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 15px;
+}
