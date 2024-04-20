@@ -1,18 +1,26 @@
 import "./App.css";
 import React, { useEffect, useState } from "react";
 import PokemonDisplay from "./components/PokemonDisplay";
+import Fighting from "./components/Fighting";
 
 function App() {
 	const baseURL = "https://pokeapi.co/api/v2/pokemon";
 	const [selected, setSelected] = useState(0);
 	const [pokemons, setPokemons] = useState([]);
-	const [team, setTeam] = useState([null, null, null, null, null, null]);
 	const [fighting, setFighting] = useState(false);
 
 	const fetchData = async (url) => {
 		const response = await fetch(url);
 		const data = await response.json();
 		return data;
+	};
+
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	const startFight = () => {
+		setFighting(true);
 	};
 
 	const pokemonData = async () => {
@@ -23,9 +31,11 @@ function App() {
 					id: pokemonDetails.id,
 					name: pokemon.name,
 					sprite_front: pokemonDetails.sprites.front_default,
+					sprite_back: pokemonDetails.sprites.back_default,
 					types: pokemonDetails.types,
 					cries: pokemonDetails.cries,
-					types: pokemonDetails.types,
+					stats: pokemonDetails.stats,
+					moves: pokemonDetails.moves,
 				};
 			})
 		);
@@ -36,10 +46,13 @@ function App() {
 
 	useEffect(() => {
 		pokemonData();
+		moveHorizontal(1);
 	}, []);
 
-
 	const moveVertical = (direction) => {
+		if (fighting) {
+			return;
+		}
 		if (direction == 0) {
 			if (selected > 2) {
 				setSelected(selected - 3);
@@ -56,6 +69,9 @@ function App() {
 	};
 
 	const moveHorizontal = (direction) => {
+		if (fighting) {
+			return;
+		}
 		if (direction == 0) {
 			if (selected > 0) {
 				setSelected(selected - 1);
@@ -68,6 +84,9 @@ function App() {
 	};
 
 	useEffect(() => {
+		if (fighting) {
+			return;
+		}
 		const handleKeyPress = (event) => {
 			switch (event.key) {
 				case "ArrowUp":
@@ -92,10 +111,11 @@ function App() {
 		return () => {
 			window.removeEventListener("keydown", handleKeyPress);
 		};
-	}, [moveVertical, moveHorizontal]); 
+	}, [moveVertical, moveHorizontal]);
+	const currentPokemon = pokemons.find((pokemon) => pokemon.id == selected + 1);
 	return (
 		<>
-			<div className="main-container">
+			<div className='main-container'>
 				<h1>{selected}</h1>
 				<div className='layout'>
 					<div className='layout-left'>
@@ -118,13 +138,28 @@ function App() {
 						<div className='lower-panel'>
 							<div className='screen'>
 								<div className='inner-screen'>
-									{pokemons && !fighting && (
+									{pokemons && !fighting ? (
 										<PokemonDisplay pokemons={pokemons} selected={selected} />
+									) : (
+										<>
+											{fighting && selected && (
+												<Fighting
+												pokemon={pokemons.find(
+													(pokemon) => pokemon.id == selected + 1
+												)}
+												enemy={
+													pokemons[
+														Math.floor(Math.random() * pokemons.length)
+													]
+												}
+												/>
+											)}
+											</>
 									)}
 								</div>
 							</div>
 							<div className='button-container'>
-								<div className='button bg-black' />
+								<div className='button bg-black' onClick={startFight} />
 								<div className='interaction-container'>
 									<div className='flat-buttons-container'>
 										<div className='flat-button bg-red' />
@@ -186,8 +221,15 @@ function App() {
 									</div>
 								</div>
 								<div className='right-lower-buttons'>
-									<div className='lower-screen' />
-									<div className='lower-screen' />
+									<div className='lower-screen'>
+										{selected &&
+											capitalizeFirstLetter(currentPokemon.types[0].type.name)}
+									</div>
+									<div className='lower-screen'>
+										{selected &&
+											currentPokemon.types[1] &&
+											capitalizeFirstLetter(currentPokemon.types[1].type.name)}
+									</div>
 								</div>
 							</div>
 						</div>
